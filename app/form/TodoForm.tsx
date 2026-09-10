@@ -16,7 +16,7 @@ export default function TodoForm() {
   });
 
   const onSubmit = async (todo: TodoFormType) => {
-    const response = await fetch("http://localhost:3000/api/todo", {
+    const response = await fetch("/api/todo", {
       method: "POST",
       body: JSON.stringify(todo),
     });
