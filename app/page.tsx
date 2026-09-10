@@ -1,8 +1,18 @@
+import Revalidate from "@/components/Revalidate";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  const response = await fetch("http://localhost:3000/api/demo", {
+    cache: "force-cache",
+  });
+  const { number } = await response.json();
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <p>Mon nombre est : {number}</p>
+      <Revalidate />
+      <Link href="/">Contact page</Link>
+      <Link href="/form">Form page</Link>
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Image
           className="dark:invert h-5 w-[100px]"
