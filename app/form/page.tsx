@@ -5,7 +5,7 @@ import Todo from "./Todo";
 export default async function FormPage(props: PageProps<"/form">) {
   return (
     <main className="mx-auto max-w-md px-4 py-12">
-      <Suspense fallback={<p>Chargement des todos AAA...</p>}>
+      <Suspense fallback={<p>Chargement des todos...</p>}>
         <Todo searchParams={props.searchParams} />
       </Suspense>
       <Suspense fallback={<p>Chargement des produits...</p>}>
